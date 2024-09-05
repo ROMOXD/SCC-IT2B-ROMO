@@ -7,8 +7,10 @@ public class Main {
     public static void main(String[] args) {
         
         
-        AgeCalculator ac = new AgeCalculator();
-        ac.getAge();
+        //AgeCalculator ac = new AgeCalculator();
+        //ac.getAge();
     
+        Receipt rc = new  Receipt();
+        rc.receiptNew();
     }
 }

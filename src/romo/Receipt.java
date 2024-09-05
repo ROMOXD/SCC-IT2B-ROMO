@@ -12,13 +12,13 @@ public void receiptNew(){
    
    System.out.println("Enter customer name: ");
      cname = input.nextLine();
-   System.out.println("Enter product name: ");
+   System.out.print("Enter product name: ");
      pname = input.nextLine();
-   System.out.println("Quantity: ");
+   System.out.print("Quantity: ");
    quan = input.nextInt();
-   System.out.println("Price: ");
+   System.out.print("Price: ");
      price = input.nextInt();
-   System.out.println("cash: ");
+   System.out.print("cash: ");
      cash = input.nextInt();
         
      System.out.println("\n-----------------------");
@@ -26,14 +26,14 @@ public void receiptNew(){
      System.out.println("-----------------------");
     
    System.out.println("Name: "+cname);
-   System.out.println("pname: "+pname); 
-   System.out.println("qu\n" +
-"   System.out.println(\"Total Due: \"+(quan*price));\n" +
-"   System.out.println(\"Cash: \"+(cash));\n" +
-"   System.out.println(\"----------------an: "+quan);
-   System.out.println("------------------------------");
-   System.out.println("Change: "+(cash-(quan*price)));
-    
+   System.out.print("Pname: "+pname); 
+   System.out.print("\nQuan: "+quan);
+   System.out.println("/n-----------------------");
+   System.out.print("\nTotal Due: "+(quan*price));
+   System.out.print("\nCash: "+(cash));
+   System.out.print("\n-----------------------");
+   System.out.print("Change: "+(cash-(quan*price)));
+   System.out.print("\n-----------------------"); 
     
     
     }  
