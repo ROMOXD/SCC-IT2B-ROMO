@@ -27,11 +27,11 @@ public void receiptNew(){
     
    System.out.println("Name: "+cname);
    System.out.println("pname: "+pname); 
-   System.out.println("quan: "+quan);
-   System.out.println("-----------------------");
-   System.out.println("Total Due: "+(quan*price));
-   System.out.println("Cash: "+(cash));
-   System.out.println("-----------------------");
+   System.out.println("qu\n" +
+"   System.out.println(\"Total Due: \"+(quan*price));\n" +
+"   System.out.println(\"Cash: \"+(cash));\n" +
+"   System.out.println(\"----------------an: "+quan);
+   System.out.println("------------------------------");
    System.out.println("Change: "+(cash-(quan*price)));
     
     
