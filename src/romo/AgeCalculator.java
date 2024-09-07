@@ -11,15 +11,15 @@ public class AgeCalculator {
         String fname;
         int byear, cyear;
         
-        System.out.println("Enter your name: ");
+        System.out.print("Enter your name: ");
         fname = input.nextLine();
-        System.out.println("Enter birth year: ");          
+        System.out.print("Enter birth year: ");          
         byear = input.nextInt();
-        System.out.println("Enter current year: ");          
+        System.out.print("Enter current year: ");          
         cyear = input.nextInt();
         
               
-        System.out.println("Hello "+fname+"\nYour age is "+(cyear-byear));
+        System.out.println("Hello "+fname+", your are "+(cyear-byear)+" years of age!\n");
     }
         
 }

@@ -1,7 +1,6 @@
 
 package romo;
 
-
 public class Salaries {
     
      public void getSalaries(){

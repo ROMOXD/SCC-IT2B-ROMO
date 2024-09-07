@@ -10,7 +10,7 @@ public void receiptNew(){
    String cname, pname;
    int quan, price, cash;
    
-   System.out.println("Enter customer name: ");
+   System.out.print("Enter customer name: ");
      cname = input.nextLine();
    System.out.print("Enter product name: ");
      pname = input.nextLine();
@@ -26,14 +26,13 @@ public void receiptNew(){
      System.out.println("-----------------------");
     
    System.out.println("Name: "+cname);
-   System.out.print("Pname: "+pname); 
-   System.out.print("\nQuan: "+quan);
-   System.out.println("/n-----------------------");
+   System.out.print("Product Name: "+pname); 
+   System.out.print("\nQuantity: "+quan);
    System.out.print("\nTotal Due: "+(quan*price));
    System.out.print("\nCash: "+(cash));
    System.out.print("\n-----------------------");
-   System.out.print("Change: "+(cash-(quan*price)));
-   System.out.print("\n-----------------------"); 
+   System.out.print("\nChange: "+(cash-(quan*price)));
+   System.out.print("\n-----------------------\n"); 
     
     
     }  
