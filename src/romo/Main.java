@@ -10,7 +10,11 @@ public class Main {
         //AgeCalculator ac = new AgeCalculator();
         //ac.getAge();
     
-        Receipt rc = new  Receipt();
-        rc.receiptNew();
+        //Receipt rc = new  Receipt();
+        //rc.receiptNew();
+        
+        Salary sry = new Salary();
+        sry.getSalary();
+       
     }
 }
