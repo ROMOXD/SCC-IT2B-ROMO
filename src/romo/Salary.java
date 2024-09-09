@@ -5,6 +5,8 @@ import java.util.Scanner;
 
 public class Salary {
     
+
+    
     public void getSalary(){
      
 Scanner scan = new Scanner(System.in);
@@ -14,12 +16,6 @@ Scanner scan = new Scanner(System.in);
     System.out.print("Enter no. of Employees: ");
     int nume = scan.nextInt();
     
-    if(nume > 100){
-   
-       System.out.println("Exceed Maximum Capacity!!");
-       
-    }
-      else{break;}
     for(int i = 0; i < nume; i++){
         
         System.out.println("Enter details of Employee "+(i+1)+":");
@@ -38,7 +34,9 @@ Scanner scan = new Scanner(System.in);
         sr[i].addSalaries(Id, Name, rateH, hour, deduc);
         
    
+   
     }
+     
     System.out.println("--------------------------------------------------------------------------------------------");
     System.out.println("| Id \t     | Name \t  | Rate       | Hours \t    | Gross \t | Deduction  | NetPay \t   |");
     System.out.println("--------------------------------------------------------------------------------------------");
@@ -49,12 +47,25 @@ Scanner scan = new Scanner(System.in);
     }
     System.out.println("--------------------------------------------------------------------------------------------");
     
-    tsr = gross + i++;
+    double tsr = 0;
+    double ted = 0;
+    double tnp = 0;
     
-        System.out.println("Total Salary Request: "+);
-        System.out.println("Total Employee Deduction: "+);
-        System.out.println("Total Net Pay: "+);
-        System.out.println("No. of Employees: "+);
+    for(int i = 0; i < nume; i++){
+    
+    tsr = tsr + (sr[i].rateH * sr[i].hour) ;
+    ted = ted + sr[i].deduc;
+    tnp = tnp +((sr[i].rateH * sr[i].hour)-sr[i].deduc);
+    
+    
+    }
+    
+        System.out.println("Total Salary Request: "+tsr);
+        System.out.println("Total Employee Deduction: "+ted);
+        System.out.println("Total Net Pay: "+tnp);
+        System.out.println("No. of Employees: "+nume);
+        
+
     
     }
     
