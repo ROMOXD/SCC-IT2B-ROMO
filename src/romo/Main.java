@@ -13,8 +13,11 @@ public class Main {
         //Receipt rc = new  Receipt();
         //rc.receiptNew();
         
-        Salary sry = new Salary();
-        sry.getSalary();
+        //Salary sry = new Salary();
+        //sry.getSalary();
+        
+        Grade grd = new Grade();
+        grd.getGrades();
        
     }
 }
