@@ -5,8 +5,8 @@ package romo;
 public class Accounts {
     
       String id, lName, fName, email, userN, pass;
-    
-    public void addAccounts(String Aid,String AlName,String AfName,String Aemail,String AuserN,String Apass){
+     
+    public void addAccounts(String Aid, String AlName, String AfName, String Aemail, String AuserN, String Apass){
     
     this.id = Aid;
     this.lName = AlName;

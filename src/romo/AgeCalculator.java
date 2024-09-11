@@ -18,7 +18,6 @@ public class AgeCalculator {
         System.out.print("Enter current year: ");          
         cyear = input.nextInt();
         
-              
         System.out.println("Hello "+fname+", your are "+(cyear-byear)+" years of age!\n");
     }
         

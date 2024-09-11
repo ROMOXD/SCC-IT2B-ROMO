@@ -11,7 +11,7 @@ public class Account {
      
      Account[] ac = new Account[100];
         
-        System.out.println("Enter no. of Account: ");
+        System.out.print("Enter no. of Account: ");
         int numa = sc.nextInt();
         
         for(int i = 0; i < numa; i++){
@@ -28,7 +28,9 @@ public class Account {
             System.out.print("Enter Username: ");
             String userN = sc.next();
             System.out.print("Enter Password: ");
-            String pass = sc.next();    
+            String pass = sc.next();
+            
+            boolean valid = true;
             
         ac[i] = new Account();
         ac[i].addAccounts(id, lName, fName, email, userN, pass);
