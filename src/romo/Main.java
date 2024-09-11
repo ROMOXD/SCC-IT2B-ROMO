@@ -16,8 +16,11 @@ public class Main {
         //Salary sry = new Salary();
         //sry.getSalary();
         
-        Grade grd = new Grade();
-        grd.getGrades();
+        //Grade grd = new Grade();
+        //grd.getGrades();
+        
+        Account act = new Account();
+        act.getAccount();
        
     }
 }

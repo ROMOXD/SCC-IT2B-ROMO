@@ -45,17 +45,7 @@ public class Grade {
         
         }
             
-        double tsp = 0;
         
-        for(int i = 0;i < nums;i ++){
-            
-        tsp = tsp +(((gr[i].p + gr[i].m + gr[i].pf + gr[i].f)/4)tsp < 3.00)i++; 
-        
-        }    
-        System.out.println("------------------------------------------------------------------------------------------------------------------------------------");
-        System.out.println("Total Student: "+nums);
-        System.out.println("Total Student Passed: "tsp);
-        System.out.println("Total Student Failed: "tsf);
     }
     
 }
