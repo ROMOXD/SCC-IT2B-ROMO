@@ -1,28 +1,29 @@
-
 package romo;
 
+    class Accounts {
+        private final int id;
+        private final String firstName;
+        private final String lastName;
+        private final String email;
+        private final String username;
+        private final String password;
 
-public class Accounts {
-    
-      String id, lName, fName, email, userN, pass;
-     
-    public void addAccounts(String Aid, String AlName, String AfName, String Aemail, String AuserN, String Apass){
-    
-    this.id = Aid;
-    this.lName = AlName;
-    this.fName = AfName;
-    this.email = Aemail;
-    this.userN = AuserN;
-    this.pass = Apass;
-    
+        public Accounts(int id, String firstName, String lastName, String email, String username, String password) {
+            this.id = id;
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.email = email;
+            this.username = username;
+            this.password = password;
+        }
+
+
+        public int getId() {
+            return id; 
+        }
+
+        public void view() {
+            System.out.printf("%-10s %-15s %-15s %-30s %-15s\n", "ID", "First Name", "Last Name", "Email", "Username");
+            System.out.printf("%-10d %-15s %-15s %-30s %-15s\n", id, firstName, lastName, email, username);
+        }
     }
-    public void viewAccounts(){
-    
-    
-    
-        System.out.printf("| %-10s | %-10s | %-10s | %-10s | %-10s | %-10s |\n",this.id, this.lName, this.fName, this.email, this.userN, this.pass);
-    
-    
-    
-    }
-}
