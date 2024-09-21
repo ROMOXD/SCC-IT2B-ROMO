@@ -2,110 +2,117 @@
 package romo;
 
 import java.util.Scanner;
-import java.util.regex.Pattern;
-
-class Account {
-    private Accounts[] accounts;
-
-    public void addAccounts(Scanner scanner) {
-        System.out.print("Enter the number of accounts to create: ");
-        int numAccounts = scanner.nextInt();
-        scanner.nextLine();
-
-        accounts = new Accounts[numAccounts];
-
-        for (int i = 0; i < numAccounts; i++) {
-            System.out.println("\nEnter details for Account " + (i + 1) + ":");
-            accounts[i] = registerAccount(scanner, i);
-        }
-
-        boolean running = true;
-        while (running) {
-            System.out.println("\nChoose an account to view:");
-            for (int i = 0; i < numAccounts; i++) {
-                System.out.println((i + 1) + ". Account " + (i + 1));
-            }
-            System.out.println((numAccounts + 1) + ". Exit");
-            System.out.print("Enter choice: ");
-            int choice = scanner.nextInt();
-
-            if (choice >= 1 && choice <= numAccounts) {
-                accounts[choice - 1].view();
-            } else if (choice == numAccounts + 1) {
-                running = false;
-            } else {
-                System.out.println("Invalid option. Please try again.");
-            }
-        }
-    }
-
-    public Accounts registerAccount(Scanner scanner, int currentIndex) {
-        int id;
-        boolean isDuplicate;
-
-        do {
-            isDuplicate = false;
+public class Account {
+     Scanner sc = new Scanner(System.in);
+    Accounts[] acs = new Accounts[100];
+    
+    public void getAccounts(){
+        
+        System.out.print("\nAdd number of users: ");
+        int user = sc.nextInt();
+        
+        for(int i = 0; i < user; i++){
+            System.out.println("\nEnter details of User "+(i+1)+":");
             System.out.print("ID: ");
-            id = scanner.nextInt();
-            scanner.nextLine();
-
-            for (int j = 0; j < currentIndex; j++) {
-                if (accounts[j] != null && accounts[j].getId() == id) {
-                    System.out.println("Error: ID " + id + " is already taken. Please enter a different ID.");
-                    isDuplicate = true;
-                }
+            int ID = sc.nextInt();
+            sc.nextLine();
+            System.out.print("First name: ");
+            String fName = sc.nextLine();
+            System.out.print("Last name: ");
+            String lName = sc.nextLine();
+            System.out.print("Email: ");
+            String Eadd = sc.next();
+            System.out.print("Username: ");
+            String usern = sc.next();
+            
+            System.out.println("\nPassword criterea:"
+                    + "\n1. Must be above 8 characters"
+                    + "\n2. Must have at least 1 upper & 1 lower case letters"
+                    + "\n3. Must have at least 1 number"
+                    + "\n4. Must have at least 1 special character"
+                    + "\n5. Must not have common password names like 'admin', password', and '1234'");
+            
+            System.out.print("\nPassword: ");
+            String passw = sc.next();
+            
+            while(!passwordVerify(passw)){
+                System.out.print("\nPassword: ");
+                passw = sc.next();
             }
-        } while (isDuplicate);
-
-        System.out.print("First Name: ");
-        String firstName = scanner.nextLine();
-
-        System.out.print("Last Name: ");
-        String lastName = scanner.nextLine();
-
-        System.out.print("Email: ");
-        String email = scanner.nextLine();
-
-        System.out.print("Username: ");
-        String username = scanner.nextLine();
-
-        String password;
-        while (true) {
-            System.out.print("Password: ");
-            password = scanner.nextLine();
-
-            if (isValidPassword(password, firstName, lastName, username)) {
-                break; 
-            } else {
-                System.out.println("Password does not meet criteria. Please try again.");
+            
+            if(duplicateVerify(ID, Eadd, usern, i)){
+                i--;
+                continue;
             }
+            
+            acs[i] = new Accounts();
+            acs[i].addAccounts(ID, fName, lName, Eadd, usern, passw);
         }
-
-        return new Accounts(id, firstName, lastName, email, username, password);
+        
+        System.out.println("-----------------------------------------------------------------------------------");
+        System.out.println("| ID \t| FIRST NAME | LAST NAME  | EMAIL \t         | USERNAME   | PASSWORD  |");
+        System.out.println("-----------------------------------------------------------------------------------");
+        
+        for(int i = 0; i < user; i++){
+            acs[i].viewAccounts();
+        }
+        System.out.println("-----------------------------------------------------------------------------------");
     }
-
-    private boolean isValidPassword(String password, String firstName, String lastName, String username) {
-        if (password.length() < ? {
-            System.out.println("Password must be at least 8 characters.");
-            return false;
-        }
-
-        if (!Pattern.compile("[A-Z]").matcher(password).find() ||
-            !Pattern.compile("[a-z]").matcher(password).find() ||
-            !Pattern.compile("[0-9]").matcher(password).find() ||
-            !Pattern.compile("[^a-zA-Z0-9]").matcher(password).find()) {
-            System.out.println("Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character.");
-            return false;
-        }
-
-        String[] commonPasswords = { "admin1234", "password", "1234", firstName.toLowerCase(), lastName.toLowerCase(), username.toLowerCase() };
-        for (String common : commonPasswords) {
-            if (password.equals(common)) {
-                System.out.println("Password cannot be a common password.");
-                return false;
+    
+    private boolean duplicateVerify(int id, String email, String user, int index){
+        for(int j = 0; j < index; j++){
+            if(id==acs[j].aid){
+                System.out.println("\nInput invalid, must not have a duplicated ID.");
+                return true;
+            } else if(email.contains(acs[j].email)){
+                System.out.println("\nInput invalid, must not have a duplicated Email.");
+                return true;
+            } else if(user.contains(acs[j].user)){
+                System.out.println("\nInput invalid, must not have a duplicated Username.");
+                return true;
             }
         }
-
-        return true; 
+        return false;
+    }
+    
+    private boolean passwordVerify(String password){
+        if(!(password.length() > 8)){
+            System.out.println("\nPassword is invalid, password must be above 8 characters");
+            return false;
+        }
+        
+        if(password.equals("admin") || password.equals("password") || password.equals("1234")){
+            System.out.println("\nPassword is invalid, password must not contains common passwords like 'admin', 'password', and '1234'");
+            return false;
+        }
+        
+        boolean hasUppercase = false;
+        boolean hasLowercase = false;
+        boolean hasDigit = false;
+        boolean hasSpecialchar = false;
+        
+        for(char c : password.toCharArray()){
+            if(Character.isLowerCase(c)){
+                hasLowercase = true;
+            } else if(Character.isUpperCase(c)){
+                hasUppercase = true;
+            } else if(Character.isDigit(c)){
+                hasDigit = true;
+            } else if(!Character.isLetterOrDigit(c)){
+                hasSpecialchar = true;
+            }
+        }
+        
+        if(!(hasUppercase && hasLowercase)){
+            System.out.println("\nPassword is invalid, must have 1 upper and l lower case letters");
+            return false;
+        } else if(!hasDigit){
+            System.out.println("\nPassword is invalid, must have at least 1 number");
+            return false;
+        } else if(!hasSpecialchar){
+            System.out.println("\nPassword is invalid, must have at least 1 special character");
+            return false;
+        }
+        return true;
     }
 }

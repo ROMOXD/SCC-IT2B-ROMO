@@ -1,40 +1,42 @@
 
 package romo;
 
-import java.util.Scanner;
 
 public class Receipt {
-public void receiptNew(){
-   Scanner input = new Scanner(System.in);
+     String fname, pname;
+    int quan, price, cash;
     
-   String cname, pname;
-   int quan, price, cash;
-   
-   System.out.print("Enter customer name: ");
-     cname = input.nextLine();
-   System.out.print("Enter product name: ");
-     pname = input.nextLine();
-   System.out.print("Quantity: ");
-   quan = input.nextInt();
-   System.out.print("Price: ");
-     price = input.nextInt();
-   System.out.print("cash: ");
-     cash = input.nextInt();
+    public void processReceipt(String fullname,String productname, int Quantity, int Price, int Cash){
         
-     System.out.println("\n-----------------------");
-     System.out.println("RECEIPT");
-     System.out.println("-----------------------");
+        this.fname = fullname;
+        this.pname = productname;
+        this.quan = Quantity;
+        this.price = Price;
+        this.cash = Cash;
+        
+
+    }
+    public void viewReceipt(){
+        System.out.println("\n ________________________ ");
+        System.out.println("|        Receipt         |");
+        System.out.println("|________________________|");
+        System.out.println("|                        |");
+        System.out.println("|  Name: "+fname+"               |");
+        System.out.println("|  Item: "+pname+"               |");
+        System.out.println("|  Quantity: "+quan+"           |");
+        System.out.println("|________________________|");
+        System.out.println("|                        |");
+        System.out.println("|  Total due:"+ (quan*price)+"           |");
+        System.out.println("|  Cash:"+cash+"                |");
+        System.out.println("|________________________|");
+        System.out.println("|                        |");
+        System.out.println("|  Change:"+(cash-(quan*price))+"              |");
+        System.out.println("|________________________|");
+        
+    }
     
-   System.out.println("Name: "+cname);
-   System.out.print("Product Name: "+pname); 
-   System.out.print("\nQuantity: "+quan);
-   System.out.print("\nTotal Due: "+(quan*price));
-   System.out.print("\nCash: "+(cash));
-   System.out.print("\n-----------------------");
-   System.out.print("\nChange: "+(cash-(quan*price)));
-   System.out.print("\n-----------------------\n"); 
     
-    
-    }  
-    
+
+   
 }
+

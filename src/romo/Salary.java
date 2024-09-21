@@ -13,7 +13,7 @@ Scanner scan = new Scanner(System.in);
 
    Salaries[] sr = new Salaries[100];
       
-    System.out.print("Enter no. of Employees: ");
+    System.out.print("\nEnter no. of Employees: ");
     int nume = scan.nextInt();
     
     for(int i = 0; i < nume; i++){
@@ -38,7 +38,7 @@ Scanner scan = new Scanner(System.in);
     }
      
     System.out.println("--------------------------------------------------------------------------------------------");
-    System.out.println("| Id \t     | Name \t  | Rate       | Hours \t    | Gross \t | Deduction  | NetPay \t   |");
+    System.out.println("| ID \t     | NAME \t  | RATE       | HOURS \t    | GROSS \t | DEDUCTION  | NETPAY \t   |");
     System.out.println("--------------------------------------------------------------------------------------------");
         for(int i = 0; i < nume; i++){
             
